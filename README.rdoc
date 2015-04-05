@@ -1,28 +1,19 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Can upload Art now in the new and edit sections in the /arts directory 
+You can add and Artist , Artwork , or Event through the rails console by : 
 
-Things you may want to cover:
+artist = Artist.create(name : "Kevin")
 
-* Ruby version
+art  = Art.create(name: "Redux")
 
-* System dependencies
+event = Event.create(name:"ArtExplosion")
 
-* Configuration
+Then push the artist, artwork, or event into the 3 bridge tables by :
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+artist.arts.push(art) // Pushes the artist into the arts_artists table owning that art(Kevin created Redux)
+event.arts.push(art) // Pushes the event into the arts_events table (Redux is in ArtExplosion)
+artist.events.push(event) //Pushes the artist into the artist_events table (Kevin is in ArtExplosion)
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=> Next going to work on Adding Image uploads for the Artist or Events pages 
